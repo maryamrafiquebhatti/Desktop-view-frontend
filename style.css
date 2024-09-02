@@ -81,6 +81,66 @@ body {
 }
 
 
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 20px; 
+    }
+
+    .navbar-content {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; 
+        gap: 10px; 
+    }
+
+    .logo {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+    }
+
+    .nav-buttons {
+        gap: 15px; 
+    }
+
+    .profile-icon {
+        margin-left: 0; 
+    }
+
+    .profile-icon img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px; 
+    }
+
+    .navbar-content {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; 
+    }
+
+    .logo {
+        margin-bottom: 15px; 
+    }
+
+    .nav-buttons {
+        gap: 10px; 
+    }
+
+    .profile-icon {
+        margin-left: 0; 
+        margin-top: 10px; 
+    }
+
+    .profile-icon img {
+        width: 35px;
+        height: 35px;
+    }
+}
 .overlay {
     position: relative;
     width: 100%;
@@ -136,16 +196,73 @@ body {
     text-align: left;
 }
 
+/* For tablets */
+@media (max-width: 1024px) {
+    .overlay {
+        padding: 8px 16px; 
+        gap: 40px; 
+    }
+
+    .header {
+        padding: 30px 15px 0 15px; 
+        gap: 15px;
+    }
+
+    .header-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .title {
+        font-size: 22px; 
+    }
+
+    .subtitle {
+        font-size: 14px; 
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .overlay {
+        padding: 8px 12px; 
+        gap: 30px; 
+    }
+
+    .header {
+        flex-direction: column; 
+        align-items: center;
+        padding: 20px 10px 0 10px; 
+        gap: 10px;
+    }
+
+    .header-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .title {
+        font-size: 18px; 
+        text-align: center; 
+    }
+
+    .subtitle {
+        font-size: 12px; 
+        text-align: center; 
+    }
+}
+
 .slider-container {
     overflow: hidden;
     width: 100%;
-    margin-top: 0; 
+    position: relative;
 }
 
 .slider {
     display: flex;
     gap: 20px;
     transition: transform 0.5s ease;
+    
 }
 
 .slide {
@@ -222,12 +339,37 @@ body {
 .slider-nav.next {
     right: 10px;
 }
-@keyframes slide {
-    0% {
-        transform: translateX(0);
+.dot.active {
+    background-color: #000; 
+}
+
+/* For tablets */
+@media (max-width: 1024px) {
+    .slide {
+        min-width: calc(33.33% - 20px); /* Adjusted for tablet screens */
     }
-    100% {
-        transform: translateX(-100%);
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .slide {
+        min-width: calc(50% - 20px); /* Adjusted for mobile screens */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .slide {
+        min-width: calc(100% - 20px); /* Full width for very small screens */
+    }
+
+    .dots-container {
+        bottom: 5px;
+        right: 5px;
+    }
+
+    .slider-nav {
+        padding: 8px;
     }
 }
 
@@ -250,6 +392,38 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets */
+@media (max-width: 1024px) {
+    .header-button {
+        width: 200px; /* Adjusted width for tablets */
+        height: 35px; /* Adjusted height for tablets */
+        padding: 6px 18px 6px 15px; /* Adjusted padding for tablets */
+        font-size: 15px; /* Adjusted font size for tablets */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .header-button {
+        width: 180px; /* Adjusted width for mobile screens */
+        height: 30px; /* Adjusted height for mobile screens */
+        padding: 5px 15px 5px 12px; /* Adjusted padding for mobile screens */
+        font-size: 14px; /* Adjusted font size for mobile screens */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .header-button {
+        width: 160px; /* Adjusted width for very small screens */
+        height: 28px; /* Adjusted height for very small screens */
+        padding: 4px 12px 4px 10px; /* Adjusted padding for very small screens */
+        font-size: 13px; /* Adjusted font size for very small screens */
+    }
 }
 
 .info-container {
@@ -301,7 +475,71 @@ body {
     color: #888888;
 }
 
+/* For tablets */
+@media (max-width: 1024px) {
+    .info-container {
+        padding: 15px; /* Adjusted padding for tablets */
+        margin-bottom: 15px; /* Adjusted margin for tablets */
+    }
 
+    .info-icon img {
+        width: 50px; /* Adjusted width for tablets */
+        height: 50px; /* Adjusted height for tablets */
+    }
+
+    .info-title {
+        font-size: 22px; /* Adjusted font size for tablets */
+        line-height: 24px; /* Adjusted line height for tablets */
+    }
+
+    .info-subtitle {
+        font-size: 14px; /* Adjusted font size for tablets */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .info-container {
+        padding: 10px; /* Adjusted padding for mobile screens */
+        margin-bottom: 10px; /* Adjusted margin for mobile screens */
+    }
+
+    .info-icon img {
+        width: 40px; /* Adjusted width for mobile screens */
+        height: 40px; /* Adjusted height for mobile screens */
+    }
+
+    .info-title {
+        font-size: 18px; /* Adjusted font size for mobile screens */
+        line-height: 22px; /* Adjusted line height for mobile screens */
+    }
+
+    .info-subtitle {
+        font-size: 13px; /* Adjusted font size for mobile screens */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .info-container {
+        padding: 8px; /* Adjusted padding for very small screens */
+        margin-bottom: 8px; /* Adjusted margin for very small screens */
+    }
+
+    .info-icon img {
+        width: 35px; /* Adjusted width for very small screens */
+        height: 35px; /* Adjusted height for very small screens */
+    }
+
+    .info-title {
+        font-size: 16px; /* Adjusted font size for very small screens */
+        line-height: 20px; /* Adjusted line height for very small screens */
+    }
+
+    .info-subtitle {
+        font-size: 12px; /* Adjusted font size for very small screens */
+    }
+}
 
 .content {
     padding-bottom: 544px; 
@@ -385,6 +623,41 @@ body {
     border-radius: 50%;
 }
 
+/* For tablets */
+@media (max-width: 1024px) {
+    .custom-picture-card {
+        width: 220px; /* Adjusted width for tablets */
+        height: auto; /* Adjusted height for tablets */
+    }
+
+    .custom-picture-card-image {
+        height: 150px; /* Adjusted height for tablets */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .custom-picture-card {
+        width: 100%; /* Full width for mobile screens */
+        height: auto; /* Adjusted height for mobile screens */
+    }
+
+    .custom-picture-card-image {
+        height: 140px; /* Adjusted height for mobile screens */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .custom-picture-card {
+        width: 100%; /* Full width for very small screens */
+        height: auto; /* Adjusted height for very small screens */
+    }
+
+    .custom-picture-card-image {
+        height: 120px; /* Adjusted height for very small screens */
+    }
+}
 
 .footer {
     position: relative;
@@ -534,4 +807,45 @@ body {
     color: #FFFFFF; 
     font-size: 12px; 
     margin-top: 10px; 
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .footer {
+        padding: 0px 10px; /* Further reduce padding on mobile screens */
+        height: auto; /* Adjust height for mobile screens */
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-item {
+        width: 100%; /* Full width for mobile screens */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    .footer-item-image {
+        width: 80px; /* Adjust image size */
+        height: 110px; /* Adjust image size */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .footer {
+        padding: 0px 5px; /* Minimal padding on very small screens */
+        height: auto; /* Adjust height for very small screens */
+    }
+
+    .footer-item {
+        width: 100%; /* Full width for very small screens */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    .footer-item-image {
+        width: 60px; /* Adjust image size */
+        height: 90px; /* Adjust image size */
+    }
 }
