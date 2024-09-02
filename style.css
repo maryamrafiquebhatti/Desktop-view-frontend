@@ -252,6 +252,7 @@ body {
     }
 }
 
+/* Slider Container Styles */
 .slider-container {
     overflow: hidden;
     width: 100%;
@@ -262,12 +263,11 @@ body {
     display: flex;
     gap: 20px;
     transition: transform 0.5s ease;
-    
 }
 
 .slide {
-    min-width: calc(25% - 20px);
-    flex: 1;
+    min-width: 100%; /* Full width for each slide */
+    box-sizing: border-box;
 }
 
 .card {
@@ -276,11 +276,11 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-top: 0;
     text-align: left;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 100%; /* Ensure card takes full height of slide */
 }
 
 .card img {
@@ -306,20 +306,27 @@ body {
 
 .dots-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Center dots below the slides */
     gap: 5px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background-color: #888888;
     border-radius: 50%;
+    display: inline-block;
 }
 
+.dot.active {
+    background-color: #000;
+}
+
+/* Navigation Buttons */
 .slider-nav {
     position: absolute;
     top: 50%;
@@ -339,39 +346,20 @@ body {
 .slider-nav.next {
     right: 10px;
 }
-.dot.active {
-    background-color: #000; 
-}
 
-/* For tablets */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
     .slide {
-        min-width: calc(33.33% - 20px); /* Adjusted for tablet screens */
+        min-width: 50%; /* Adjusted for tablet screens */
     }
 }
 
-/* For mobile screens */
 @media (max-width: 768px) {
     .slide {
-        min-width: calc(50% - 20px); /* Adjusted for mobile screens */
+        min-width: 100%; /* Full width for mobile screens */
     }
 }
 
-/* For very small screens */
-@media (max-width: 480px) {
-    .slide {
-        min-width: calc(100% - 20px); /* Full width for very small screens */
-    }
-
-    .dots-container {
-        bottom: 5px;
-        right: 5px;
-    }
-
-    .slider-nav {
-        padding: 8px;
-    }
-}
 
 .header-button {
     width: 233px;
@@ -540,83 +528,107 @@ body {
         font-size: 12px; /* Adjusted font size for very small screens */
     }
 }
-/* Style for the slider container */
+/* General slider styles */
+.slider-container,
 .custom-picture-cards-slider-container {
-    position: relative;
-    width: 100%;
     overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
+.slider,
 .custom-picture-cards-slider {
     display: flex;
-    overflow: hidden;
-    width: 100%;
+    gap: 0; /* Set gap to 0 for no spacing between cards */
+    transition: transform 0.5s ease;
 }
 
+/* Slider card styles */
+.slide,
 .custom-picture-card {
-    flex: 1 0 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #fff;
-    text-align: center;
+    min-width: 244px; /* Set the width to the desired size */
+    flex: 0 0 auto; /* Ensure cards don’t shrink or grow */
 }
 
+/* Main slider card styles */
+.slide img,
 .custom-picture-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    width: 244px; /* Set the width to the desired size */
+    height: 325.33px; /* Set the height to the desired size */
+    border-radius: 15px 0 0 0; /* Set the border-radius as specified */
 }
 
-.custom-picture-card-content {
-    padding: 10px;
-}
-
-.custom-picture-card-title {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.custom-picture-card-subtitle {
-    font-size: 1em;
-    color: #555;
-}
-
+/* Slider navigation buttons */
+.slider-nav,
 .custom-slider-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: #ffffff;
     border: none;
-    cursor: pointer;
     padding: 10px;
+    cursor: pointer;
     z-index: 10;
 }
 
+.slider-nav.prev,
 .custom-slider-nav.prev {
     left: 10px;
 }
 
+.slider-nav.next,
 .custom-slider-nav.next {
     right: 10px;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Dots containers */
+.dots-container,
+.dots-container-card {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot,
+.dot-card {
+    width: 8px;
+    height: 8px;
+    background-color: #888888;
+    border-radius: 50%;
+}
+
+.dot.active,
+.dot-card.active {
+    background-color: #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .slide,
     .custom-picture-card {
-        flex: 1 0 100%;
+        min-width: 200px; /* Adjust size to fit more cards per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .slide,
+    .custom-picture-card {
+        min-width: 150px; /* Adjust size to fit more cards per row */
     }
 }
 
 @media (max-width: 480px) {
-    .custom-picture-card-title {
-        font-size: 1.2em;
-    }
-
-    .custom-picture-card-subtitle {
-        font-size: 0.9em;
+    .slide,
+    .custom-picture-card {
+        min-width: 100%; /* Adjust to fit 1 card per row */
     }
 }
+
 
 
 .footer {
