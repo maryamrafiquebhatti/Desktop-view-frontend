@@ -88,7 +88,7 @@ body {
     }
 
     .navbar-content {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         align-items: flex-start; 
         gap: 10px; 
     }
@@ -540,124 +540,84 @@ body {
         font-size: 12px; /* Adjusted font size for very small screens */
     }
 }
-
-.content {
-    padding-bottom: 544px; 
-    min-height: calc(100vh - 544px); 
+/* Style for the slider container */
+.custom-picture-cards-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
-
-.custom-picture-cards-container {
+.custom-picture-cards-slider {
     display: flex;
-    flex-direction: row;
-    gap: 20px; 
-    flex-wrap: wrap; 
+    overflow: hidden;
+    width: 100%;
 }
-
 
 .custom-picture-card {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    padding: 20px; 
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; 
-    width: 272.91px; 
-    height: 353.33px; 
-    box-sizing: border-box; 
-    position: relative; 
+    flex: 1 0 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
 }
 
-.custom-picture-card-image {
-    width: 100%;
-    height: 180px; 
-    object-fit: cover; 
-    border-radius: 15px 15px 0 0; 
+.custom-picture-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .custom-picture-card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; 
-    height: 100%; 
+    padding: 10px;
 }
 
 .custom-picture-card-title {
-    font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 21.86px;
+    font-size: 1.5em;
     margin: 0;
 }
 
 .custom-picture-card-subtitle {
-    font-family: 'Manrope', sans-serif;
-    font-size: 14px;
-    color: #666666;
-    margin: 0;
-    margin-top: 15px; 
+    font-size: 1em;
+    color: #555;
 }
 
-.dots-container-card1 {
-    display: flex;
-    gap: 5px; /* Space between dots */
+.custom-slider-nav {
     position: absolute;
-    bottom: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.custom-slider-nav.prev {
+    left: 10px;
+}
+
+.custom-slider-nav.next {
     right: 10px;
 }
 
-.dots-container-card2 {
-    display: flex;
-    gap: 5px; 
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-}
-
-.dot-card1, .dot-card2 {
-    width: 8px;
-    height: 8px;
-    background-color: #888888;
-    border-radius: 50%;
-}
-
-/* For tablets */
-@media (max-width: 1024px) {
-    .custom-picture-card {
-        width: 220px; /* Adjusted width for tablets */
-        height: auto; /* Adjusted height for tablets */
-    }
-
-    .custom-picture-card-image {
-        height: 150px; /* Adjusted height for tablets */
-    }
-}
-
-/* For mobile screens */
+/* Responsive design */
 @media (max-width: 768px) {
     .custom-picture-card {
-        width: 100%; /* Full width for mobile screens */
-        height: auto; /* Adjusted height for mobile screens */
-    }
-
-    .custom-picture-card-image {
-        height: 140px; /* Adjusted height for mobile screens */
+        flex: 1 0 100%;
     }
 }
 
-/* For very small screens */
 @media (max-width: 480px) {
-    .custom-picture-card {
-        width: 100%; /* Full width for very small screens */
-        height: auto; /* Adjusted height for very small screens */
+    .custom-picture-card-title {
+        font-size: 1.2em;
     }
 
-    .custom-picture-card-image {
-        height: 120px; /* Adjusted height for very small screens */
+    .custom-picture-card-subtitle {
+        font-size: 0.9em;
     }
 }
+
 
 .footer {
     position: relative;
